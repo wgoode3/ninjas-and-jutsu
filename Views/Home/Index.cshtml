@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jubotron">
+    <h1>Naruto Many to Many</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <partial name="_Ninja.cshtml"></partial>
+    </div>
+    <div class="col-sm-4">
+        <partial name="_Jutsu.cshtml"></partial>
+    </div>
+    <div class="col-sm-4">
+        <partial name="_Ninjitsu.cshtml"></partial>
+    </div>
+</div>
+
+<br><br>
+
+<table class="table">
+    <tr>
+        <th>Ninja Name</th>
+        <th>Chakra Level</th>
+        <th># of Techniques</th>
+        <th>Techniques</th>
+    </tr>
+    @foreach(var ninja in ViewBag.AllNinjas)
+    {
+        <tr>
+            <td>@ninja.Name</td>
+            <td>@ninja.Chakra</td>
+            <td>@ninja.KnownJutsu.Count</td>
+            <td>
+                @foreach(var jutsu in ninja.KnownJutsu)
+                {
+                    <span>
+                        @jutsu.ThatJutsu.TechniqueName
+                        <a href="/remove/@ninja.NinjaId/@jutsu.JutsuId">
+                            &times;
+                        </a>
+                        &nbsp;
+                    </span>
+                }
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,26 @@
+
+<h3>Teach a Ninja a Jutsu</h3>
+
+@model Ninjutsu
+
+<form action="/ninjutsu" method="post">
+    <div class="form-group">
+        <label>Ninja</label>
+        <select name="NinjaId" class="form-control">
+            @foreach(var ninja in ViewBag.Ninjas)
+            {
+                <option value="@ninja.NinjaId">@ninja.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ninja Techniques</label>
+        <select name="JutsuId" class="form-control">
+            @foreach(var jutsu in ViewBag.Jutsus)
+            {
+                <option value="@jutsu.JutsuId">@jutsu.TechniqueName</option>
+            }
+        </select>
+    </div>
+    <input type="submit" class="btn btn-primary">
+</form>

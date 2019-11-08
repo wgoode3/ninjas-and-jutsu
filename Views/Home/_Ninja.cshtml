@@ -1,0 +1,17 @@
+@model Ninja
+
+<h3>Add a Ninja</h3>
+
+<form action="/ninja" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="Name" class="form-control">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label>Chakra</label>
+        <input type="number" name="Chakra" class="form-control" min="1" max="9">
+        <span asp-validation-for="Chakra"></span>
+    </div>
+    <input type="submit" class="btn btn-success">
+</form>
